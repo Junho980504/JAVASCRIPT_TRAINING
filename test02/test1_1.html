@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>test1</title>
+        
+        <style>
+            #container1{
+                background-color: black;
+            }
+
+            h1{
+                color: tomato;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container1">
+            <h1>테스트1</h1>
+        </div>
+
+        <div>
+            <input type = "text" value = "" id="input1">
+            <input type = "text" value = "" id="input2">
+
+            <button onclick="show()">확인</button>
+        </div>
+
+        <div id = "output1">
+            
+        </div>
+        
+        <script src="test1_1.js"></script>
+        <script>
+            function show() {
+                console.log('show 함수 호출됨');
+                
+                const input1 = document.querySelector('#input1');
+                const input2 = document.querySelector('#input2');
+
+                const inputA = input1.value;
+                const inputB = input2.value;
+
+                const a = Number(inputA);
+                const b = Number(inputB);
+
+                const result = add(a, b);
+                print(`더하기 결과 : ${result}`);
+
+            }
+           
+        </script>
+    </body>
+</html>

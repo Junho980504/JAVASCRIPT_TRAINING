@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> 계산기 </title>
+</head>
+<h1> 입장료 계산기 </h1>
+
+<body>
+
+    <div>
+        <p> 성인 수</p>
+        <input type="text" value="" id="adult" placeholder="명수를 입력하세요." />
+        <p> 어린이 수</p>
+        <input type="text" value="" id="child" placeholder="명수를 입력하세요." />
+        <button onclick="calc()">계산</button>
+        <div id="output1"> 총 입장료</div>
+    </div>
+
+    <div>
+        <span>단체할인</span>
+        <input type="radio" name="person" value="단체" checked><span>예</span>
+        <input type="radio" name="person" value="개인"><span>아니요</span>
+    </div>
+    <div>
+        <img id = "output2" src="images/cat_run.png">
+        
+    </div>
+
+    <script>
+        let calc = () => {
+            console.log(`calc 함수 호출됨`);
+            let input1 = document.querySelector('#adult');
+            let input2 = document.querySelector('#child');
+            let aStr = input1.value;
+            let bStr = input2.value;
+
+            let a = Number(aStr);
+            let b = Number(bStr);
+
+            if (isNaN(a) || isNaN(b)) {
+                alert('입력된 값이 숫자가 아닙니다.');
+                const output2 = document.querySelector('#output2');
+                output2.src = 'images/dog_run.png';
+                return;
+            }
+            const radios = document.getElementsByName('person');
+                const selected = Array.from(radios).find(elem => elem.checked);
+                alert(`계산완료 : ${selected.value}`);
+
+            let result = a * 20000 + b * 9900;
+                
+                if(selected.value == '단체'){
+                    console.log(`단체할인이 선택되었습니다.`);
+                    if (selected.value =(a + b) >= 5) {
+                result *= 0.8;
+            }
+                } else if (selected.value == '개인'){
+                    console.log(`단체할인이 선택되지않았습니다.`)
+                    result;
+                }
+
+                
+            let output1 = document.querySelector('#output1');
+            output1.innerHTML = `<p> 총합 : ${result} </p>`;
+        }
+
+        
+    </script>
+
+
+
+
+
+</body>
+
+</html>
