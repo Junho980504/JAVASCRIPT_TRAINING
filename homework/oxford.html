@@ -311,7 +311,7 @@
         function randomNumber(){
                 let peopleNum = persons.length;
                 
-                if(peopleNum>0){
+                if(peopleNum>0){ 
                     let randomIndex = Math.floor(Math.random() * peopleNum);
                     let randomPerson = persons[randomIndex];
                     document.querySelector("#output100").textContent = `축하합니다. ${randomIndex + 1}번입니다.`;
